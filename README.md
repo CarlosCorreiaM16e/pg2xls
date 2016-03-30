@@ -11,9 +11,13 @@ python pg2xls.py -d db_name \
 
 **Optional parameters:**
 ```-h``` : defaults to 'localhost'
+
 ```-p``` : defaults to 5432
+
 ```-U``` : defaults to os.environ[ 'USER' ]
+
 ```-f``` : defaults to 'sheet.xlsx'
+
 ```-T``` : defaults to '' (empty)
 
 ```-W``` : read from ~/.pgpass or from console
