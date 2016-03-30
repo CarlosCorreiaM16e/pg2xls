@@ -3,7 +3,8 @@
 Create Excel files from Postgresql databases
 
 ## USAGE
-```python pg2xls.py -d db_name \
+```
+python pg2xls.py -d db_name \
   [-h localhost] [-p 5432] [-U username] [-W password] \
   [-t table] [-q "query"] [-f filename] [-T "sheet title" ]
 ```
