@@ -2,6 +2,9 @@
 
 Create Excel files from Postgresql databases
 
+### DEPENDENCIES
+```psycopg2``` and ```openpyxl``` (v. >= 2.3.2)
+
 ## USAGE
 ```
 python pg2xls.py -d db_name \
