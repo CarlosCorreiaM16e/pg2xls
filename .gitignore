@@ -64,3 +64,6 @@ target/
 # Env
 .directory
 
+# IDE's
+.idea/
+
