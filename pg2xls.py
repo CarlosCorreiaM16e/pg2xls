@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# this file is released under GPL Licence v.3
 
 import getopt
 import psycopg2
@@ -7,9 +8,12 @@ import sys
 import os
 import traceback
 
-from openpyxl import Workbook
-from openpyxl.styles import Font
-from openpyxl.utils import get_column_letter
+import openpyxl
+
+
+__author__="carlos@memoriapersistente.pt"
+__version__ = "0.9.0"
+__version_date__ = '2016-03-31'
 
 HELP = """
 USAGE: export table to xls
@@ -27,7 +31,7 @@ def get_column_names_from_query( cursor ):
 
 #------------------------------------------------------------------
 def export_to_xls( conn, table_name, query, title, filename ):
-    wb = Workbook()
+    wb = openpyxl.Workbook()
     ws1 = wb.active
     ws1.title = title
     cursor = conn.cursor()
@@ -40,8 +44,8 @@ def export_to_xls( conn, table_name, query, title, filename ):
     print( col_names )
     ws1.append( col_names )
     for col in range( len( col_names ) ):
-        # print( 'col: %d - %s' % (col, get_column_letter( col + 1 ) ) )
-        ws1[ '%s1' % get_column_letter( col + 1 ) ].font = Font( bold=True )
+        idx = '%s1' % openpyxl.utils.get_column_letter( col + 1 )
+        ws1[ idx ].font = openpyxl.styles.Font( bold=True )
 
     for row in cursor:
         ws1.append( row )
